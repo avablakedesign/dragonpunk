@@ -1,8 +1,8 @@
 import { useContext, useState } from "react"
-import { UserContext } from "@/lib/client-context";
+import { UserContext } from "../lib/client-context";
 import Link from "next/link" 
 import {useRouter} from "next/router";
-import CartPreview from "@/components/CartPreview";
+import CartPreview from "./CartPreview";
 const Header = () => {
     const router = useRouter()
     const userContext = useContext(UserContext);
