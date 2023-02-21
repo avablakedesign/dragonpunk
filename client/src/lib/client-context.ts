@@ -1,5 +1,5 @@
 import type { Dispatch } from "react";
-import type { UserDetails } from "@/types";
+import type { UserDetails } from "./index";
 import { createContext } from "react";
 interface IUserContext{
     user: UserDetails | null;
