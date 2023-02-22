@@ -12,6 +12,7 @@ export default async function handler(req: any, res: any) {
         catch (err) {
             console.log(err)
             res.status(500).json({ err: "Can not authorize" })
+            return
         }
     }
     if (req.method === "POST") {
@@ -31,15 +32,17 @@ export default async function handler(req: any, res: any) {
             // const cookies = serialize("authToken", authToken, { httpOnly: true });
             // res.setHeader("Set-Cookie", cookies);
             res.status(200).json({ user: foundUser, authToken });
+            return
         }
         catch (err) {
             console.log(err)
             res.status(500).json({ error: "Not authenticated." });
+            return
         }
     }
     if (req.method === "DELETE") {
-        res.setHeader("Set-Cookie", "");
         res.status(200).json({ message: "success" });
+        return
     }
     else {
         res.status(400).json({ error: "Not authenticated." })
