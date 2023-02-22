@@ -30,12 +30,14 @@ const Page = () => {
                 userContext.setUser(
                     {...loginData.user, cart:[]}
                 )
-                localStorage.setItem("authToken", loginData.authToken);
+                if (loginData.authToken) {
+                    localStorage.setItem("authToken", loginData.authToken);
                 if (loginData.user.isAdmin) {
                     router.push("/admin/dashboard");
                 }
                 else {
                     router.push("/search");
+                }   
                 }
             }
             catch (err) {
