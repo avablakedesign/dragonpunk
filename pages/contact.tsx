@@ -50,16 +50,4 @@ const Page = () => {
    );
  };
 
-
-        // <div>
-        //     <h1>Contact</h1>
-        //     <div>
-        //         <form onSubmit={formik.handleSubmit}>
-        //             <
-        //         </form>
-        //     </div>
-        // </div>
-//     )
-// }
-
 export default Page
