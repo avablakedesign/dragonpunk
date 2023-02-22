@@ -1,4 +1,4 @@
-import connectMongo from "@/db/connection";
+import connectMongo from "../db/connection";
 // import * as ApolloServerErrorCode from '@apollo/server/errors';
 import { GraphQLError } from "graphql";
 import User from "@/server/models/User";

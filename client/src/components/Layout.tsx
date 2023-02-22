@@ -1,6 +1,9 @@
+
+// This is what is going in app.tsx!!!!
+
 import type { ReactNode } from "react"
 import { useState } from "react"
-import { UserProvider } from "@/lib/client-context"
+import { UserProvider } from "../lib/client-context"
 import Header from "./Header"
 import Footer from "./Footer"
 interface Props {

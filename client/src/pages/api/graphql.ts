@@ -1,9 +1,9 @@
 import { ApolloServer } from "@apollo/server"
 import { startServerAndCreateNextHandler } from "@as-integrations/next"
 
-import context from "@/graphql/context"
-import schema from "@/graphql/schema"
-import resolvers from "@/graphql/resolvers"
+import context from "../../../../server/graphql/context"
+import schema from "../../../../server/graphql/schema"
+import resolvers from "../../../../server/graphql/resolvers"
 
 
 
