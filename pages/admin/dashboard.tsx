@@ -69,7 +69,7 @@ const Page = (props:any) => {
                 <button onClick = {handleShowAddProduct} className = "button">
                     Add Product
                 </button >
-                {showAddProduct && <AddProduct/>}
+                {showAddProduct && <AddProduct setShowModal = {setShowAddProduct}/> }
             </div>
             <div>
                 {renderProductsPreview()}

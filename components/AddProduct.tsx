@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import graphqlClient from "@/lib/graphql-client";
 import gql from "graphql-tag";
-const AddProduct = () => {
+const AddProduct = (props:any) => {
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -34,9 +34,13 @@ const AddProduct = () => {
             }
         }
     });
+    const handleCloseButton = () => {
+        props.setShowModal(false);
+    }
     return (
       <div className = "modal">
-          <div>
+          <div className = "modal-inner">
+            <button className = "button" onClick={handleCloseButton}>Close</button>
             <h1>Create Product</h1>
             <div>
                 <form onSubmit={formik.handleSubmit}>
