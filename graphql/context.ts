@@ -26,7 +26,7 @@ export default async (req:NextApiRequest, res:NextApiResponse): Promise<any> => 
             return null;
         }
         try {
-            const user = await User.findById(verified.id)
+            const user = await User.findById(verified.id, "-password")
             if (!user) {
                 return null;
             } 

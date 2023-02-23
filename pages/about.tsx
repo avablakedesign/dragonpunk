@@ -1,8 +1,8 @@
 const Page = () => {
     return (
-        <div>
+        <div className = "about-me-wrapper">
             <h1>About Us</h1>
-            <div>
+            <div className = "about-me">
                 <img src="./dragonslayer.jpg" />
             </div>
             <div>

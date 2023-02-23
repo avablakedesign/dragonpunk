@@ -46,7 +46,8 @@ export default {
             if (!context.user){
                 return null
             }
-            return context.user
+            const authUser = context.user;
+            return authUser;
         }
     },
 

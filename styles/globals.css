@@ -24,6 +24,19 @@ body {
   min-height: 100vh;
 }
 
+.product-preview-wrapper {
+  margin-bottom: 1rem;
+}
+
+.product-preview-name {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.product-preview-details {
+  padding: 0 0.5rem;
+}
+
 .product-preview {
   border: 2px solid black;
 }
@@ -38,6 +51,7 @@ body {
 }
 
 .modal {
+  z-index: 100;
   top: 0;
   left: 0;
   position: fixed;
@@ -81,7 +95,58 @@ body {
 }
 
 .splash-page-hero {
-  font-size: 10rem;
+  font-size: 8.5vw;
   animation: splash-hero 4s ease-in-out;
   animation-iteration-count: 3;
+}
+
+.form-wrapper {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+}
+
+.button {
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.about-me-wrapper {
+  flex-direction:column;
+  text-align: center;
+}
+
+.about-me {
+  display: flex;
+  justify-content: center;
+}
+
+.about-me img {
+  height: 75vh;
+  width: auto;
+}
+
+.sign-up-log-in-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sign-up {
+  padding-right: 5px;
+}
+
+.log-in {
+  padding-right: 5px;
+}
+
+.render-products-wrapper {
+  align-items: center;
+}
+
+.supra-render-products-wrapper {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }

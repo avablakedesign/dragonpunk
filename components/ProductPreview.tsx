@@ -8,7 +8,7 @@ interface Props {
 const ProductPreview = (props:Props) => {
     return(
         <div className = "product-preview">
-            <div>
+            <div className = "product-preview-name">
                 <h5>
                     {props.name}
                 </h5>
@@ -16,18 +16,20 @@ const ProductPreview = (props:Props) => {
             <div className = "product-preview-image">
                 <img src = {props.images[0]} alt = "mainimage"/>
             </div>
-            <div>
-                <p>
-                    {props.description}
-                </p>
-            </div>
-            <div>
+            <div className = "product-preview-details">
+                <div>
                     <p>
-                        price: {props.price}
+                        {props.description}
                     </p>
-                    <p>
-                        quantity: {props.quantity}
-                    </p>
+                </div>
+                <div>
+                        <p>
+                            price: {props.price}
+                        </p>
+                        <p>
+                            quantity: {props.quantity}
+                        </p>
+                </div>
             </div>
         </div>
     )

@@ -16,7 +16,10 @@ export default async function handler(req: any, res: any) {
         }
     }
     if (req.method === "POST") {
-
+        if (!req.body.email){
+            res.status(400).json({ error: "Not authenticated." })
+            return 
+        }
         try {
             const foundUser = await User.findOne({ email: req.body.email });
             if (!foundUser) {
@@ -31,7 +34,9 @@ export default async function handler(req: any, res: any) {
             const authToken = jwt.sign({ id: foundUser.id, email: foundUser.email }, process.env.JWT_SECRET!);
             // const cookies = serialize("authToken", authToken, { httpOnly: true });
             // res.setHeader("Set-Cookie", cookies);
-            res.status(200).json({ user: foundUser, authToken });
+            const authUser = Object.assign({}, foundUser._doc, { password:undefined });
+            console.log(authUser);
+            res.status(200).json({ user: authUser, authToken });
             return
         }
         catch (err) {

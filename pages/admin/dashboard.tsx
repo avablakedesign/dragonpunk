@@ -1,9 +1,11 @@
 import AddProduct from "@/components/AddProduct"
-import { useState } from "react"
+import { useState, useEffect, useContext } from "react"
+import { useRouter } from "next/router"
 import ProductPreview from "@/components/ProductPreview"
 import graphqlClient from "@/lib/graphql-client";
 import gql from "graphql-tag";
 import UpdateProductWrapper from "@/components/UpdateProductWrapper";
+import { UserContext } from "@/lib/client-context";
 export const getServerSideProps = async () => {
     const query = gql`
         query Query {
@@ -37,8 +39,20 @@ export const getServerSideProps = async () => {
     }
 }
 const Page = (props:any) => {
+    const router = useRouter();
+    const { user, setUser } = useContext(UserContext);
     const [products, setProducts] = useState(props.products);
     const [showAddProduct, setShowAddProduct] = useState(false);
+    // useEffect(()=>{
+    //     console.log("admin dashboard user", user)
+    //     if(!user?.isAdmin){
+    //         // router.push("/search")
+    //     }
+    // },
+    // //dependency array, if you pass in nothing it runs once when it loads.
+    // [user]
+    // );
+
     const handleShowAddProduct = () => {
         setShowAddProduct(true) 
     }
@@ -52,7 +66,7 @@ const Page = (props:any) => {
         <div>
             <h1>Admin Dashboard</h1>
             <div>
-                <button onClick = {handleShowAddProduct}>
+                <button onClick = {handleShowAddProduct} className = "button">
                     Add Product
                 </button >
                 {showAddProduct && <AddProduct/>}

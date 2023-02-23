@@ -13,6 +13,7 @@ const Page = () => {
         }
     });
     return (
+    <div className = "form-wrapper">    
     <form onSubmit={formik.handleSubmit}>
         <h1>Contact</h1>
        <label htmlFor="firstName">First Name</label>
@@ -44,9 +45,11 @@ const Page = () => {
          value={formik.values.email}
        />
        {formik.errors.email ? <div>{formik.errors.email}</div> : null}
- 
-       <button type="submit">Submit</button>
+        <textarea>
+        </textarea>
+       <button type="submit" className = "button">Submit</button>
     </form>
+    </div>
    );
  };
 

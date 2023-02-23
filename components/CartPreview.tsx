@@ -45,10 +45,10 @@ function CartPreview(props: any) {
         <div className="modal">
             <div className="modal-inner">
                 {renderProducts()}
-                <button onClick={handleCartPreview}>
+                <button onClick={handleCartPreview} className = "button">
                     Close
                 </button>
-                <button onClick={handleCheckout}>
+                <button onClick={handleCheckout} className = "button">
                     Checkout
                 </button>
             </div>

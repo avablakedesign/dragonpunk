@@ -115,6 +115,7 @@ const Page = () => {
                     <div>
                         <button
                             type="submit"
+                            className = "button"
                         >
                             Sign Up
                         </button>

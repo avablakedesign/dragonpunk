@@ -35,7 +35,8 @@ const AddProduct = () => {
         }
     });
     return (
-        <div>
+      <div className = "modal">
+          <div>
             <h1>Create Product</h1>
             <div>
                 <form onSubmit={formik.handleSubmit}>
@@ -110,7 +111,7 @@ const AddProduct = () => {
                         />
                     </div>
                     <div>
-                        <button
+                        <button className = "button"
                             type="submit"
                         >
                             Add
@@ -119,6 +120,7 @@ const AddProduct = () => {
                 </form>
             </div>
         </div>
+      </div>
 
     )
 }

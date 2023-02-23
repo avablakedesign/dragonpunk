@@ -43,9 +43,9 @@ const Page = (props: any) => {
         })
     }
     return (
-        <div>
+        <div className = "supra-render-products-wrapper">
             <h1>Our Collections</h1>
-            <div>
+            <div className = "render-products-wrapper">
                 {renderProductsPreview()}
             </div>
         </div>

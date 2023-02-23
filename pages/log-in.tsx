@@ -24,9 +24,12 @@ const Page = () => {
                     },
                     body: JSON.stringify({email:values.email, password:values.password})
                 })
+                if (!loginResponse.ok){
+                    throw new Error("server error");
+                }
                 const loginData = await loginResponse.json();
+                console.log("login success")
                 console.log(loginData);
-    
                 userContext.setUser(
                     {...loginData.user, cart:[]}
                 )
@@ -74,7 +77,7 @@ const Page = () => {
                         />
                     </div>
                     <div>
-                        <button
+                        <button className = "button"
                             type="submit"
                         >
                             Log In

@@ -34,12 +34,12 @@ const UpdateProductWrapper = (props: any) => {
         }
     }
     return (
-        <div>
+        <div className = "product-preview-wrapper supra-render-products-wrapper">
             <div>
-                <button onClick={handleUpdateProduct}>
+                <button onClick={handleUpdateProduct} className = "button">
                     Update
                 </button>
-                <button onClick={handleDeleteProduct}>
+                <button onClick={handleDeleteProduct} className = "button">
                     Delete
                 </button>
             </div>

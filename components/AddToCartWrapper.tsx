@@ -5,16 +5,18 @@ const AddToCartWrapper = (props: any) => {
     const { user, setUser } = useContext(UserContext);
     const handleAddToCart = () => {
         if (user && user.cart) {
+            const newCart = [...user.cart, props.product]
+            localStorage.setItem("checkoutCart", JSON.stringify(newCart))
             setUser({
                 ...user,
-                cart: [...user.cart, props.product]
+                cart: newCart
             })
         }
     }
     return (
-        <div>
+        <div className = "product-preview-wrapper">
             <div>
-                <button onClick={handleAddToCart}>
+                <button onClick={handleAddToCart} className = "button">
                     Add to Cart
                 </button>
             </div>
