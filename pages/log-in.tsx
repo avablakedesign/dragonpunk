@@ -5,6 +5,8 @@ import {useRouter} from "next/router";
 import { useContext } from "react";
 import { UserContext } from "@/lib/client-context";
 
+//This uses the formik library to handle form events and manage form state.
+//This uses the useFormik hook to accomplish the above. 
 const Page = () => {
     const router = useRouter()
     const userContext = useContext(UserContext);
@@ -15,7 +17,6 @@ const Page = () => {
         },
         onSubmit: async (values) => {
             console.log(values)
-            //TODO: connect this to an authentication service
             try {
                 const loginResponse = await fetch("/api/auth", {
                     method: "POST",

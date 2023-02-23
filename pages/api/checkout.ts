@@ -6,6 +6,7 @@ const stripe = new Stripe(process.env.STRIPE_ACCESS_KEY!, {
   apiVersion: "2022-11-15"
 })
 
+//We find all the products in the users cart and the associated products from stripe and send the user to a stripe generated checkout page. 
 export default async function handler(req: any, res: any) {
   if (req.method === 'POST') {
     try {

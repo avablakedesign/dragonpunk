@@ -6,6 +6,7 @@ import type { AppProps } from 'next/app'
 const fontMain = localFontOne({
   src: "../public/GloomyThings.ttf"
 })
+//the root of the application, it's wrapping and applying font to the entire site and renders the layout.
 import Layout from '@/components/Layout'
 export default function App({ Component, pageProps }: AppProps) {
   return (

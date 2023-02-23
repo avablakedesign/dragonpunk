@@ -1,5 +1,6 @@
 import { gql } from "graphql-tag"
 
+//Here we define the shape of the data and how queries and mutations use the data.
 export default gql`
     type User{
         id: String!

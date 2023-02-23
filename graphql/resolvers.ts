@@ -12,8 +12,9 @@ const stripe = new Stripe( process.env.STRIPE_ACCESS_KEY!, {
  apiVersion:"2022-11-15"
 })
 
-
+//A resolver is either function that returns data or changes data. These are similar to route handlers in express.js. 
 export default {
+    //A query is purely informational and does not change the state of the system. Like get requests.
     Query: {
         // return all categories
         categories: async () => {
@@ -50,67 +51,7 @@ export default {
             return authUser;
         }
     },
-
-    //         // return all products
-    //         products: async (parent, {category, name }) => {
-    //             const params = {};
-
-    //             if (category) {
-    //                 params.category = category;
-    //             }
-
-    //             if (name) {
-    //                 params.name = {
-    //                     $regex: name,
-    //                 };
-    //             }
-
-    //             return Product.find(params).populate('category');
-    //         },
-
-    //         // return single product by Id
-    //         product: async (parent, {id}) =>
-    //             Product.findById(id).populate('category'),
-
-    //         // return single user by Id
-    //         user: async (parent, args, context) => {
-    //             if (context.user) {
-    //                 const user = await User.findById(context.user.id).populate({
-    //                     path: 'orders.products',
-    //                     populate: 'category',
-    //                 });
-
-    //                 user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
-
-    //                 return user;
-    //             }
-
-    //             throw new AuthenticationError('Not logged in');
-    //         },
-
-    //         // return all of a users previous orders
-    //         orders: async (parent, { id }, context) => {
-    //             if (context.user) {
-    //                 const user = await User.findById(context.user.id).populate({
-    //                     path: 'orders.products',
-    //                     populate: 'category',
-    //                 });
-
-    //                 return user.orders.id(id);
-    //             }
-
-    //             throw new AuthenticationError('Not logged in');
-    //         },
-
-    //         // Desired Result: Go to User Cart Subdoc and view all 'cartItems' inside of the user cart
-    //         cart: async (parent, { id }, context) => {
-    //             if (context.user) {
-    //                 const user = await User.findById(context.user.id).select('cart');
-    //             };
-    //             return user.cart.id(id);
-    //         }
-    //     },
-
+//This is like a post request.
     Mutation: {
         addProduct: async (parent: any, args: any, contextValue: any, info: any) => {
             try {
@@ -125,6 +66,7 @@ export default {
                     upsert:true
                 })
                 console.log(category)
+                //Here a new stripe product is added to the stripe dashboard. Thats independant from mongoDB.
                 const stripeProduct = await stripe.products.create({
                     name: args.name,
                     default_price_data: {
@@ -178,6 +120,7 @@ export default {
                 return null
             }
         },
+        //We dont use the login here instead we use the /api/auth route.
         login: async (parent: any, { email, password }: any) => {
             try {
                 await connectMongo()

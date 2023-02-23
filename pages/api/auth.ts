@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import User from "@/server/models/User";
 import { serialize } from "cookie";
 
+//The post method logs the user in.
 export default async function handler(req: any, res: any) {
     if (req.method === "GET") {
         try {

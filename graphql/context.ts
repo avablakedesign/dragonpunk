@@ -20,7 +20,8 @@ export default async (req:NextApiRequest, res:NextApiResponse): Promise<any> => 
         if (!authToken){
             return null;
         }
-        //Here you should implement a json webtoken for verification to return the user details from MongoDB.
+        //Here we issue a json webtoken for verification and return the user details from MongoDB.
+        //This user is now accessible from every resolver in the graphQl server. 
         const verified:any = jwt.verify(authToken as string, process.env.JWT_SECRET!)
         if (!verified) {
             return null;

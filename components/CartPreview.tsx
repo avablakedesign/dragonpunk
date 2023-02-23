@@ -10,6 +10,7 @@ function CartPreview(props: any) {
     const handleCartPreview = () => {
         props.setCartPreview(false);
     };
+    //This initiates the stripe checkout. It calls api/checkout.
     const handleCheckout = async () => {
         try {
             const response = await fetch("/api/checkout", {

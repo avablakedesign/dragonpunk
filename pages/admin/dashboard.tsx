@@ -6,6 +6,9 @@ import graphqlClient from "@/lib/graphql-client";
 import gql from "graphql-tag";
 import UpdateProductWrapper from "@/components/UpdateProductWrapper";
 import { UserContext } from "@/lib/client-context";
+//This runs on the server before the page. 
+//It gathers the products from the graphQL endpoint and pass it to the page as props.
+//This is a built in function from next.js
 export const getServerSideProps = async () => {
     const query = gql`
         query Query {

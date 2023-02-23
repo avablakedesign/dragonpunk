@@ -1,8 +1,11 @@
+//This is the page for all the products to be listed.
 import AddToCartWrapper from "@/components/AddToCartWrapper"
-// import { Products } from "@/lib/dummy-data"
 import graphqlClient from "@/lib/graphql-client";
 import gql from "graphql-tag";
 
+//This function runs on the server before the page loads
+//This retrieves all the products from the graphql server, and passes them into the page as props.
+//Before the page loads this function gets executed.
 export const getServerSideProps = async () => {
     const query = gql`
         query Query {
@@ -36,6 +39,7 @@ export const getServerSideProps = async () => {
     }
 }
 const Page = (props: any) => {
+    //This maps over all the prodcts retrieved from the server and returns a unique component for each. 
     const renderProductsPreview = () => {
         return props.products.map((product: any) => {
             // key prop and generic props

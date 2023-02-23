@@ -2,10 +2,13 @@ import { useRouter } from "next/router";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "@/lib/client-context";
 import Link from "next/link";
+//After the stripe checkout a user is redirected here to this page. 
+//If the order is successful we clear the cart. 
 const Page = () => {
     const router = useRouter();
     const {user, setUser} = useContext(UserContext); 
     useEffect(()=>{
+        //When local storage changes then set the context to clear the cart. 
         window.addEventListener("storage", ()=>{
             setUser({...user, cart:[]})
         })

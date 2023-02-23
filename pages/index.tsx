@@ -1,5 +1,4 @@
-
-import type { UserDetails } from '@/types'
+//this is the home page. 
 import Head from 'next/head'
 
 export default function Home() {
