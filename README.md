@@ -21,7 +21,7 @@ N/A
 - [Tests](#tests)
 - [Questions](#questions)
  ## Usage
- ![screenshot](public\dragonpunk_screenshot.png)
+ ![screenshot](./public/dragonpunk_screenshot.png)
 
  ## License
  Please contact us.
