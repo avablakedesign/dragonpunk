@@ -5,9 +5,8 @@ import {useRouter} from "next/router";
 import CartPreview from "@/components/CartPreview";
 const Header = () => {
     const router = useRouter()
-    const userContext = useContext(UserContext);
-    console.log("header userContext", userContext);
-    const userContextUser:any = userContext.user
+    const {user, setUser} = useContext(UserContext);
+    console.log("header userContext", user);
     const [cartPreview, setCartPreview] = useState(false) 
     const handleCartPreview = () => {
         setCartPreview(true)
@@ -19,7 +18,7 @@ const Header = () => {
             // })
             // const logOutData = await logOutResponse.json();
             localStorage.removeItem("authToken");
-            userContext.setUser(null);
+            setUser(null);
             router.push("/");   
         } catch (err) {
             console.log(err);
@@ -29,12 +28,12 @@ const Header = () => {
     return (
         <header>
             {
-                userContext && userContext.user?
+               user?
                 <div>
-                    <p>{userContextUser?.user?.first_name}</p>
+                    <p>{user?.first_name}</p>
                     <button onClick = {handleCartPreview} className = "button">
                         Cart{" "}
-                        <span>{userContext.user.cart.length}</span>
+                        <span>{user?.cart.length}</span>
                     </button>
                     <button onClick = {handleLogout} className = "button">
                         Logout
@@ -46,7 +45,7 @@ const Header = () => {
                             </button> 
                         </Link>
                     </div>
-                    {userContextUser?.user?.isAdmin && 
+                    {user?.isAdmin && 
                         <div className = "dashboard">
                             <Link href = "/admin/dashboard">
                                 <button className = "button">
