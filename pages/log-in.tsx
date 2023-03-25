@@ -31,6 +31,7 @@ const Page = () => {
                 const loginData = await loginResponse.json();
                 console.log("login success")
                 console.log(loginData);
+                console.log("login user: ", { ...loginData.user, cart: []})
                 userContext.setUser(
                     {...loginData.user, cart:[]}
                 )
