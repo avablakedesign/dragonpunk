@@ -49,10 +49,10 @@ const Layout = (props: Props) => {
                 graphqlClient.setHeader("Authorization", authToken);
                 const userRes = await graphqlClient.request(query);
                 console.log("graphQL user", userRes);
-                if (!user) {
+                if (!userRes) {
                     return
                 }
-                console.log("layout user: ",{ ...userRes, cart: parsedLocalCart })
+                console.log("layout user: ",{ ...userRes.user, cart: parsedLocalCart })
                 setUser({ ...userRes.user, cart: parsedLocalCart })
             } catch (err) {
                 console.log(err);
